@@ -2,20 +2,20 @@
 module.exports = parse
 
 function parse(list) {
-  let node = { name: 'base', link: [] }
+  let node = { link: [] }
   let child
   let stack = [node]
   for (let token of list) {
     node = stack[stack.length - 1]
     switch (token.form) {
-      case `base-arch`:
+      case `open-paren`:
         child = node.link[node.link.length - 1]
         stack.push(child)
         break
-      case `head-arch`:
+      case `close-paren`:
         stack.pop()
         break
-      case `base-text`:
+      case `open-text`:
         child = {
           form: `text`,
           link: []
@@ -23,30 +23,18 @@ function parse(list) {
         node.link.push(child)
         stack.push(child)
         break
-      case `head-text`:
+      case `close-text`:
         stack.pop()
         break
-      case `base-term`:
+      case `open-term`:
         child = {
-          form: `term`,
+          form: `read`,
           link: []
         }
         node.link.push(child)
         stack.push(child)
         break
-      case `head-term`:
-        stack.pop()
-        break
-      case `base-read`:
-        child = {
-          form: `read`,
-          link: []
-        }
-        let childNode = node.link[node.link.length - 1]
-        childNode.link.push(child)
-        stack.push(child)
-        break
-      case `head-read`:
+      case `close-term`:
         stack.pop()
         break
       case `text`:
@@ -93,15 +81,14 @@ function parse(list) {
 
 const patterns = [
   [/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*/, 'name'],
-  [/^\[/, 'base-read'],
-  [/^\]/, 'head-read'],
+  [/^\[/, 'open'],
+  [/^\]/, 'close'],
   [/^\//, 'stem']
 ]
 
 function parsePath(str) {
-  let text = str
   let node
-  let nest = []
+  let nest = { form: 'nest', link: [] }
   let result = nest
   let stack = [nest]
   while (str.length) {
@@ -113,20 +100,19 @@ function parsePath(str) {
         if (pattern[1] === 'name') {
           node = {
             form: `term`,
-            name: match[0],
-            link: []
+            term: match[0],
           }
-          nest.push(node)
+          nest.link.push(node)
         } else if (pattern[1] === 'stem') {
-          stack.push(node.link)
-        } else if (pattern[1] === 'base-read') {
+
+        } else if (pattern[1] === 'open') {
           node = {
-            form: 'read',
+            form: 'nest',
             link: []
           }
-          nest.push(node)
-          stack.push(node.link)
-        } else if (pattern[1] === 'head-read') {
+          nest.link.push(node)
+          stack.push(node)
+        } else if (pattern[1] === 'close') {
           stack.pop()
         }
 
@@ -135,5 +121,10 @@ function parsePath(str) {
       }
     }
   }
-  return result[0]
+
+  if (result.link.length === 1 && result.link[0].form === 'term') {
+    return { form: 'link', link: [result.link[0]] }
+  } else {
+    return { form: 'link', link: [result] }
+  }
 }

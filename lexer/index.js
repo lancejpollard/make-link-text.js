@@ -3,15 +3,15 @@ module.exports = lex
 
 const patterns = [
   [/^[a-z][a-z0-9\-\/\[\]]*/, 'nest', true],
-  [/^\(/, 'base-arch'],
-  [/^ /, 'base-arch', null, true],
-  [/^\)/, 'head-arch'],
-  [/^</, 'base-text'],
-  [/^>/, 'head-text'],
-  [/^\{/, 'base-term'],
-  [/^\}/, 'head-term'],
-  [/^\[/, 'base-read'],
-  [/^\]/, 'head-read'],
+  [/^\(/, 'open-paren'],
+  [/^ /, 'open-paren', null, true],
+  [/^\)/, 'close-paren'],
+  [/^</, 'open-text'],
+  [/^>/, 'close-text'],
+  [/^\{/, 'open-term'],
+  [/^\}/, 'close-term'],
+  [/^\[/, 'open-nest'],
+  [/^\]/, 'close-nest'],
   [/^[@\/\.][^\s]*/, 'text', true],
   [/^, */, 'slot'],
   [/^-?\d+\.\d+/, 'mark-line', true],
@@ -20,16 +20,16 @@ const patterns = [
 ]
 
 const stringPatterns = [
-  [/^\{/, 'base-term'],
+  [/^\{/, 'open-term'],
   [/^(?:\\[<>\{\}])+/, 'text', true, null, t => t.replace(/\\/g, '')],
   [/^[^\{>]+/, 'text', true],
-  [/^>/, 'head-text'],
+  [/^>/, 'close-text'],
 ]
 
 function lex(str) {
   const tokens = []
   tokens.push({ form: 'nest', text: 'start' })
-  tokens.push({ form: 'base-arch' })
+  tokens.push({ form: 'open-paren' })
   let indents = [0]
   let nesting = 0
   let matched = false
@@ -48,13 +48,13 @@ function lex(str) {
       if (str.match(/^ *$/)) {
         while (nesting > 1) {
           tokens.push({
-            form: 'head-arch'
+            form: 'close-paren'
           })
           nesting--
         }
         while (indents.length) {
           tokens.push({
-            form: 'head-arch'
+            form: 'close-paren'
           })
           indents.pop()
         }
@@ -71,7 +71,7 @@ function lex(str) {
       if (newIndent === oldIndent) {
         while (nesting) {
           tokens.push({
-            form: 'head-arch'
+            form: 'close-paren'
           })
           nesting--
         }
@@ -84,7 +84,7 @@ function lex(str) {
       } else if (newIndent > oldIndent) {
         while (nesting > 1) {
           tokens.push({
-            form: 'head-arch'
+            form: 'close-paren'
           })
           nesting--
         }
@@ -101,14 +101,14 @@ function lex(str) {
         if (Math.abs(newIndent - oldIndent) % 2 != 0) throw new Error('Indentation error')
         while (nesting) {
           tokens.push({
-            form: 'head-arch'
+            form: 'close-paren'
           })
           nesting--
         }
         let diff = (oldIndent - newIndent) / 2
         while (diff) {
           tokens.push({
-            form: 'head-arch'
+            form: 'close-paren'
           })
           diff--
           indents.pop()
@@ -129,12 +129,12 @@ function lex(str) {
           let attrs = {
             form: pattern[1]
           }
-          if (pattern[1] === 'base-text') {
+          if (pattern[1] === 'open-text') {
             isString = true
           }
-          if (pattern[1] === 'head-text' || pattern[1] === 'base-term') {
+          if (pattern[1] === 'close-text' || pattern[1] === 'open-term') {
             isString = false
-          } else if (pattern[1] === 'head-term') {
+          } else if (pattern[1] === 'close-term') {
             isString = true
           }
           if (pattern[3]) {
@@ -150,16 +150,16 @@ function lex(str) {
   }
   while (nesting > 1) {
     tokens.push({
-      form: 'head-arch'
+      form: 'close-paren'
     })
     nesting--
   }
   while (indents.length) {
     tokens.push({
-      form: 'head-arch'
+      form: 'close-paren'
     })
     indents.pop()
   }
-  tokens.push({ form: 'head-arch' })
+  tokens.push({ form: 'close-paren' })
   return tokens
 }
