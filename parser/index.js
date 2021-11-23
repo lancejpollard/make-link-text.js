@@ -46,10 +46,10 @@ function parse(list) {
         break
       case `slot`:
         break
-      case `mark`:
+      case `size`:
         child = {
-          form: `mark`,
-          mark: parseInt(token.text, 10)
+          form: `size`,
+          size: parseInt(token.text, 10)
         }
         node.link.push(child)
         break
@@ -64,9 +64,9 @@ function parse(list) {
         }
         node.link.push(child)
         break
-      case `mark-line`:
+      case `line`:
         child = {
-          form: `mark-line`,
+          form: `line`,
           fill: parseFloat(token.text)
         }
         node.link.push(child)

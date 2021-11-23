@@ -14,8 +14,8 @@ const patterns = [
   [/^\]/, 'close-nest'],
   [/^[@\/\.][^\s]*/, 'text', true],
   [/^, */, 'slot'],
-  [/^-?\d+\.\d+/, 'mark-line', true],
-  [/^-?\d+/, 'mark', true],
+  [/^-?\d+\.\d+/, 'line', true],
+  [/^-?\d+/, 'size', true],
   [/^#\w+/, 'code', true],
 ]
 

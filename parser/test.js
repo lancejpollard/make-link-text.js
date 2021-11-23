@@ -8,7 +8,7 @@ link a/b[c/d][e]/f[g[h[i/j]]]
   another bar
 
 link foo/bar, foo/baz, a/b/c
-link <foo>
+link <foo>, 123, #u123, 3.14
 `)
 
 function test(a, b) {
