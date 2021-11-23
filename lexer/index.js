@@ -28,8 +28,8 @@ const stringPatterns = [
 
 function lex(str) {
   const tokens = []
-  tokens.push({ form: 'nest', text: 'start' })
-  tokens.push({ form: 'open-paren' })
+  // tokens.push({ form: 'nest', text: 'start' })
+  // tokens.push({ form: 'open-paren' })
   let indents = [0]
   let nesting = 0
   let matched = false
@@ -160,6 +160,6 @@ function lex(str) {
     })
     indents.pop()
   }
-  tokens.push({ form: 'close-paren' })
+  // tokens.push({ form: 'close-paren' })
   return tokens
 }

@@ -2,7 +2,8 @@
 module.exports = parse
 
 function parse(list) {
-  let node = { link: [] }
+  let node = { form: 'host', name: 'text', link: [] }
+  let start = node
   let child
   let stack = [node]
   for (let token of list) {
@@ -76,7 +77,7 @@ function parse(list) {
         break
     }
   }
-  return stack.shift().link[0]
+  return start
 }
 
 const patterns = [
@@ -87,9 +88,21 @@ const patterns = [
 ]
 
 function parsePath(str) {
+  if (str.match(/[\[\/]/)) {
+    return parseNest(str)
+  } else {
+    return parseHost(str)
+  }
+}
+
+function parseHost(str) {
+  return { form: 'host', name: str, link: [] }
+}
+
+function parseNest(str) {
   let node
   let nest = { form: 'nest', link: [] }
-  let result = nest
+  let host = nest
   let stack = [nest]
   while (str.length) {
     nest = stack[stack.length - 1]
@@ -99,8 +112,8 @@ function parsePath(str) {
       if (match) {
         if (pattern[1] === 'name') {
           node = {
-            form: `term`,
-            term: match[0],
+            form: `site`,
+            name: match[0],
           }
           nest.link.push(node)
         } else if (pattern[1] === 'stem') {
@@ -122,9 +135,5 @@ function parsePath(str) {
     }
   }
 
-  if (result.link.length === 1 && result.link[0].form === 'term') {
-    return { form: 'link', link: [result.link[0]] }
-  } else {
-    return { form: 'link', link: [result] }
-  }
+  return host
 }
