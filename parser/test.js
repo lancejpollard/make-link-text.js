@@ -29,15 +29,20 @@ const lex = require('../lexer')
 //   d m x(y, z)
 // `)
 
-test(`
-link a/b[c/d][e]/f[g[h[i/j]]]
-  text <foo {bar(<hello {random}>, <world>} baz>
-  another bar
+// test(`
+// link a/b[c/d][e]/f[g[h[i/j]]]
+//   text <foo {bar(<hello {random}>, <world>} baz>
+//   another bar
 
-x foo/bar, foo/baz, a/b/c
-y <foo>, 123, #u123, 3.14
-dynamic-{term(<asdf>)} foo
-{one}{two}-three{four(x)}-five
+// x foo/bar, foo/baz, a/b/c
+// y <foo>, 123, #u123, 3.14
+// dynamic-{term(<asdf>)} foo
+// {one}{two}-three{four(x)}-five
+// `)
+
+test(`
+form mark-{size}
+  bar baz
 `)
 
 // test(`

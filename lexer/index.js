@@ -11,7 +11,7 @@ const termPatterns = [
   [/^>/, 'close-text'],
   [/^\{/, 'open-interpolation'],
   [/^\}/, 'close-interpolation'],
-  [/^[a-z]+/, 'term-part', true],
+  [/^[a-z\-0-9]+/, 'term-part', true],
   [/^-/, 'term-part-separator', true],
   [/^\//, 'nest-separator', true],
   [/^\[/, 'open-nest'],
@@ -298,6 +298,7 @@ function normalize(list) {
         if (next) {
           switch (next.form) {
             case 'slot':
+            case 'line':
             case 'open-parenthesis':
             case 'close-parenthesis':
               out.push({
