@@ -5,138 +5,381 @@ This:
 
 ```
 link a/b[c/d][e]/f[g[h[i/j]]]
-  text <foo {bar <hello {random}>, <world>} baz>
+  text <foo {bar(<hello {random}>, <world>} baz>
   another bar
-link foo/bar, foo/baz, a/b/c
-link <foo>, 123, #u123, 3.14
+
+x foo/bar, foo/baz, a/b/c
+y <foo>, 123, #u123, 3.14
+dynamic-{term(<asdf>)} foo
+{one}{two}-three{four(x)}-five
 ```
 
 Becomes this:
 
 ```json
 {
-  "form": "host",
-  "name": "text",
-  "link": [
+  "form": "stem",
+  "host": [
     {
-      "form": "host",
-      "name": "link",
+      "form": "term",
       "link": [
         {
-          "form": "nest",
+          "form": "cord",
+          "cord": "file"
+        }
+      ]
+    }
+  ],
+  "stem": [
+    {
+      "form": "stem",
+      "host": [
+        {
+          "form": "term",
           "link": [
             {
-              "form": "site",
-              "name": "a"
-            },
+              "form": "cord",
+              "cord": "link"
+            }
+          ]
+        }
+      ],
+      "stem": [
+        {
+          "form": "stem",
+          "host": [
             {
-              "form": "site",
-              "name": "b"
-            },
-            {
-              "form": "nest",
+              "form": "term",
               "link": [
                 {
-                  "form": "site",
-                  "name": "c"
-                },
-                {
-                  "form": "site",
-                  "name": "d"
+                  "form": "cord",
+                  "cord": "a"
                 }
               ]
             },
             {
-              "form": "nest",
+              "form": "term",
               "link": [
                 {
-                  "form": "site",
-                  "name": "e"
+                  "form": "cord",
+                  "cord": "b"
                 }
               ]
             },
             {
-              "form": "site",
-              "name": "f"
-            },
-            {
-              "form": "nest",
-              "link": [
+              "form": "stem",
+              "host": [
                 {
-                  "form": "site",
-                  "name": "g"
-                },
-                {
-                  "form": "nest",
+                  "form": "term",
                   "link": [
                     {
-                      "form": "site",
-                      "name": "h"
-                    },
+                      "form": "cord",
+                      "cord": "c"
+                    }
+                  ]
+                },
+                {
+                  "form": "term",
+                  "link": [
                     {
-                      "form": "nest",
-                      "link": [
-                        {
-                          "form": "site",
-                          "name": "i"
-                        },
-                        {
-                          "form": "site",
-                          "name": "j"
-                        }
-                      ]
+                      "form": "cord",
+                      "cord": "d"
                     }
                   ]
                 }
+              ],
+              "stem": []
+            },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "e"
+                    }
+                  ]
+                }
+              ],
+              "stem": []
+            },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "f"
+                }
               ]
+            },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "g"
+                    }
+                  ]
+                },
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "h"
+                        }
+                      ]
+                    },
+                    {
+                      "form": "stem",
+                      "host": [
+                        {
+                          "form": "term",
+                          "link": [
+                            {
+                              "form": "cord",
+                              "cord": "i"
+                            }
+                          ]
+                        },
+                        {
+                          "form": "term",
+                          "link": [
+                            {
+                              "form": "cord",
+                              "cord": "j"
+                            }
+                          ]
+                        }
+                      ],
+                      "stem": []
+                    }
+                  ],
+                  "stem": []
+                }
+              ],
+              "stem": []
+            }
+          ],
+          "stem": [
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "a"
+                    }
+                  ]
+                },
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "b"
+                    }
+                  ]
+                },
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "c"
+                        }
+                      ]
+                    },
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "d"
+                        }
+                      ]
+                    }
+                  ],
+                  "stem": []
+                },
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "e"
+                        }
+                      ]
+                    }
+                  ],
+                  "stem": []
+                },
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "f"
+                    }
+                  ]
+                },
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "g"
+                        }
+                      ]
+                    },
+                    {
+                      "form": "stem",
+                      "host": [
+                        {
+                          "form": "term",
+                          "link": [
+                            {
+                              "form": "cord",
+                              "cord": "h"
+                            }
+                          ]
+                        },
+                        {
+                          "form": "stem",
+                          "host": [
+                            {
+                              "form": "term",
+                              "link": [
+                                {
+                                  "form": "cord",
+                                  "cord": "i"
+                                }
+                              ]
+                            },
+                            {
+                              "form": "term",
+                              "link": [
+                                {
+                                  "form": "cord",
+                                  "cord": "j"
+                                }
+                              ]
+                            }
+                          ],
+                          "stem": []
+                        }
+                      ],
+                      "stem": []
+                    }
+                  ],
+                  "stem": []
+                }
+              ],
+              "stem": []
             }
           ]
         },
         {
-          "form": "host",
-          "name": "text",
-          "link": [
+          "form": "stem",
+          "host": [
             {
-              "form": "text",
+              "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "text": "foo "
-                },
+                  "cord": "text"
+                }
+              ]
+            }
+          ],
+          "stem": [
+            {
+              "form": "stem",
+              "host": [
                 {
-                  "form": "read",
+                  "form": "text",
                   "link": [
                     {
-                      "form": "host",
-                      "name": "bar",
-                      "link": [
+                      "form": "cord",
+                      "text": "foo "
+                    },
+                    {
+                      "form": "stem",
+                      "host": [
                         {
-                          "form": "text",
+                          "form": "term",
                           "link": [
                             {
                               "form": "cord",
-                              "text": "hello "
-                            },
+                              "cord": "bar"
+                            }
+                          ]
+                        }
+                      ],
+                      "stem": [
+                        {
+                          "form": "stem",
+                          "host": [
                             {
-                              "form": "read",
+                              "form": "text",
                               "link": [
                                 {
-                                  "form": "host",
-                                  "name": "random",
-                                  "link": []
+                                  "form": "cord",
+                                  "text": "hello "
+                                },
+                                {
+                                  "form": "stem",
+                                  "host": [
+                                    {
+                                      "form": "term",
+                                      "link": [
+                                        {
+                                          "form": "cord",
+                                          "cord": "random"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "stem": []
                                 }
                               ]
                             }
-                          ]
+                          ],
+                          "stem": []
                         },
                         {
-                          "form": "text",
-                          "link": [
+                          "form": "stem",
+                          "host": [
                             {
-                              "form": "cord",
-                              "text": "world"
+                              "form": "text",
+                              "link": [
+                                {
+                                  "form": "cord",
+                                  "text": "world"
+                                }
+                              ]
                             }
-                          ]
+                          ],
+                          "stem": []
                         }
                       ]
                     },
@@ -146,98 +389,344 @@ Becomes this:
                     }
                   ]
                 }
+              ],
+              "stem": []
+            }
+          ]
+        },
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "another"
+                }
               ]
             }
-          ]
-        },
-        {
-          "form": "host",
-          "name": "another",
-          "link": [
+          ],
+          "stem": [
             {
-              "form": "host",
-              "name": "bar",
-              "link": []
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "bar"
+                    }
+                  ]
+                }
+              ],
+              "stem": []
             }
           ]
         }
       ]
     },
     {
-      "form": "host",
-      "name": "link",
-      "link": [
+      "form": "stem",
+      "host": [
         {
-          "form": "nest",
-          "link": [
-            {
-              "form": "site",
-              "name": "foo"
-            },
-            {
-              "form": "site",
-              "name": "bar"
-            }
-          ]
-        },
-        {
-          "form": "nest",
-          "link": [
-            {
-              "form": "site",
-              "name": "foo"
-            },
-            {
-              "form": "site",
-              "name": "baz"
-            }
-          ]
-        },
-        {
-          "form": "nest",
-          "link": [
-            {
-              "form": "site",
-              "name": "a"
-            },
-            {
-              "form": "site",
-              "name": "b"
-            },
-            {
-              "form": "site",
-              "name": "c"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "form": "host",
-      "name": "link",
-      "link": [
-        {
-          "form": "text",
+          "form": "term",
           "link": [
             {
               "form": "cord",
-              "text": "foo"
+              "cord": "x"
             }
           ]
+        }
+      ],
+      "stem": [
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "foo"
+                }
+              ]
+            },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "bar"
+                }
+              ]
+            }
+          ],
+          "stem": []
         },
         {
-          "form": "size",
-          "size": 123
+          "form": "stem",
+          "host": [
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "foo"
+                }
+              ]
+            },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "baz"
+                }
+              ]
+            }
+          ],
+          "stem": []
         },
         {
-          "form": "code",
-          "code": "ģ"
-        },
-        {
-          "form": "line",
-          "fill": 3.14
+          "form": "stem",
+          "host": [
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "a"
+                }
+              ]
+            },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "b"
+                }
+              ]
+            },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "c"
+                }
+              ]
+            }
+          ],
+          "stem": []
         }
       ]
+    },
+    {
+      "form": "stem",
+      "host": [
+        {
+          "form": "term",
+          "link": [
+            {
+              "form": "cord",
+              "cord": "y"
+            }
+          ]
+        }
+      ],
+      "stem": [
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "text",
+              "link": [
+                {
+                  "form": "cord",
+                  "text": "foo"
+                }
+              ]
+            }
+          ],
+          "stem": []
+        },
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "mark",
+              "mark": 123
+            }
+          ],
+          "stem": []
+        },
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "code",
+              "base": "u",
+              "code": "123"
+            }
+          ],
+          "stem": []
+        },
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "comb",
+              "fill": 3.14
+            }
+          ],
+          "stem": []
+        }
+      ]
+    },
+    {
+      "form": "stem",
+      "host": [
+        {
+          "form": "term",
+          "link": [
+            {
+              "form": "cord",
+              "cord": "dynamic-"
+            },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "term"
+                    }
+                  ]
+                }
+              ],
+              "stem": [
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "text",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "text": "asdf"
+                        }
+                      ]
+                    }
+                  ],
+                  "stem": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "stem": [
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "foo"
+                }
+              ]
+            }
+          ],
+          "stem": []
+        }
+      ]
+    },
+    {
+      "form": "stem",
+      "host": [
+        {
+          "form": "term",
+          "link": [
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "one"
+                    }
+                  ]
+                }
+              ],
+              "stem": []
+            },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "two"
+                    }
+                  ]
+                }
+              ],
+              "stem": []
+            },
+            {
+              "form": "cord",
+              "cord": "-three"
+            },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "four"
+                    }
+                  ]
+                }
+              ],
+              "stem": [
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "x"
+                        }
+                      ]
+                    }
+                  ],
+                  "stem": []
+                }
+              ]
+            },
+            {
+              "form": "cord",
+              "cord": "-five"
+            }
+          ]
+        }
+      ],
+      "stem": []
     }
   ]
 }
