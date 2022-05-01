@@ -5,7 +5,7 @@ This:
 
 ```
 link a/b[c/d][e]/f[g[h[i/j]]]
-  text <foo {bar(<hello {random}>, <world>} baz>
+  text <foo {bar(<hello {random}>, <world>)} baz>
   another bar
 
 x foo/bar, foo/baz, a/b/c
