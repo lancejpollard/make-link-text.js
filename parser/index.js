@@ -2,138 +2,180 @@
 module.exports = parse
 
 function parse(list) {
-  let node = { form: 'host', name: 'text', link: [] }
-  let start = node
-  let child
-  let stack = [node]
-  for (let token of list) {
-    node = stack[stack.length - 1]
+  const start = {
+    form: 'stem',
+    host: [
+      {
+        form: 'term',
+        link: [
+          {
+            form: 'cord',
+            cord: 'file'
+          }
+        ]
+      }
+    ],
+    stem: []
+  }
+  const stack = [ start ]
+  let i = 0
+
+  while (i < list.length) {
+    const token = list[i++]
+    // console.log(token.form, stack)
     switch (token.form) {
-      case `open-paren`:
-        child = node.link[node.link.length - 1]
-        stack.push(child)
-        break
-      case `close-paren`:
-        stack.pop()
-        break
-      case `open-text`:
-        child = {
-          form: `text`,
+      case `term-open`: {
+        const node = stack[stack.length - 1]
+        const term = {
+          form: 'term',
           link: []
         }
-        node.link.push(child)
-        stack.push(child)
+        node.host.push(term)
+        stack.push(term)
         break
-      case `close-text`:
+      }
+      case `term-close`: {
         stack.pop()
         break
-      case `open-term`:
-        child = {
-          form: `read`,
+      }
+      case `open-parenthesis`: {
+        const node = stack[stack.length - 1]
+        const stem = {
+          form: 'stem',
+          host: [],
+          stem: []
+        }
+        node.stem.push(stem)
+        stack.push(stem)
+        break
+      }
+      case `close-parenthesis`: {
+        stack.pop()
+        break
+      }
+      case `slot`: {
+        stack.pop()
+        const node = stack[stack.length - 1]
+
+        const stem = {
+          form: 'stem',
+          host: [],
+          stem: []
+        }
+        node.stem.push(stem)
+        stack.push(stem)
+        break
+      }
+      case `term-part`: {
+        const term = stack[stack.length - 1]
+        const last = term.link[term.link.length - 1]
+        if (last && last.form === 'cord') {
+          last.cord += token.text
+        } else {
+          term.link.push({
+            form: 'cord',
+            cord: token.text
+          })
+        }
+        break
+      }
+      case `nest-separator`: {
+        break
+      }
+      case `open-nest`: {
+        const node = stack[stack.length - 1]
+        const stem = {
+          form: 'stem',
+          host: [],
+          stem: []
+        }
+        node.host.push(stem)
+        stack.push(stem)
+        break
+      }
+      case `close-nest`: {
+        stack.pop()
+        break
+      }
+      case `open-text`: {
+        const node = stack[stack.length - 1]
+        const text = {
+          form: 'text',
           link: []
         }
-        node.link.push(child)
-        stack.push(child)
+        node.host.push(text)
+        stack.push(text)
         break
-      case `close-term`:
+      }
+      case `close-text`: {
         stack.pop()
         break
-      case `text`:
-        node.link.push({
-          form: `cord`,
-          text: token.text
-        })
-        break
-      case `slot`:
-        break
-      case `size`:
-        child = {
-          form: `size`,
-          size: parseInt(token.text, 10)
+      }
+      case `open-interpolation`: {
+        const text = stack[stack.length - 1]
+        const stem = {
+          form: 'stem',
+          host: [],
+          stem: []
         }
-        node.link.push(child)
+        text.link.push(stem)
+        stack.push(stem)
         break
-      case `code`:
+      }
+      case `close-interpolation`: {
+        stack.pop()
+        break
+      }
+      case `text`: {
+        const text = stack[stack.length - 1]
+        const last = text.link[text.link.length - 1]
+        if (last && last.form === 'cord') {
+          last.cord += token.text
+        } else {
+          text.link.push({
+            form: `cord`,
+            text: token.text
+          })
+        }
+        break
+      }
+      case `line`: {
+        stack.pop()
+        break
+      }
+      case `mark`: {
+        const stem = stack[stack.length - 1]
+        const mark = {
+          form: `mark`,
+          mark: parseInt(token.text, 10)
+        }
+        stem.host.push(mark)
+        break
+      }
+      case `code`: {
+        const node = stack[stack.length - 1]
         token.text.match(/#(\w)(\w+)/)
         let form = RegExp.$1
         let val = RegExp.$2
-        if (form !== 'u') throw new Error(form)
-        child = {
+        if (!form.match(/[ubohx]/)) throw new Error(form)
+        const code = {
           form: 'code',
-          code: String.fromCharCode(parseInt(val, 16))
+          base: form,
+          code: val//String.fromCharCode(parseInt(val, 16))
         }
-        node.link.push(child)
+        node.host.push(code)
         break
-      case `line`:
-        child = {
-          form: `line`,
+      }
+      case `comb`: {
+        const node = stack[stack.length - 1]
+        const comb = {
+          form: `comb`,
           fill: parseFloat(token.text)
         }
-        node.link.push(child)
+        node.host.push(comb)
         break
-      case `nest`:
-        child = parsePath(token.text)
-        node.link.push(child)
-        break
-    }
-  }
-  return start
-}
-
-const patterns = [
-  [/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*/, 'name'],
-  [/^\[/, 'open'],
-  [/^\]/, 'close'],
-  [/^\//, 'stem']
-]
-
-function parsePath(str) {
-  if (str.match(/[\[\/]/)) {
-    return parseNest(str)
-  } else {
-    return parseHost(str)
-  }
-}
-
-function parseHost(str) {
-  return { form: 'host', name: str, link: [] }
-}
-
-function parseNest(str) {
-  let node
-  let nest = { form: 'nest', link: [] }
-  let host = nest
-  let stack = [nest]
-  while (str.length) {
-    nest = stack[stack.length - 1]
-    p:
-    for (let pattern of patterns) {
-      let match = str.match(pattern[0])
-      if (match) {
-        if (pattern[1] === 'name') {
-          node = {
-            form: `site`,
-            name: match[0],
-          }
-          nest.link.push(node)
-        } else if (pattern[1] === 'stem') {
-
-        } else if (pattern[1] === 'open') {
-          node = {
-            form: 'nest',
-            link: []
-          }
-          nest.link.push(node)
-          stack.push(node)
-        } else if (pattern[1] === 'close') {
-          stack.pop()
-        }
-
-        str = str.substr(match[0].length)
-        break p
       }
     }
   }
-
-  return host
+  return start
 }
