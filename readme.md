@@ -1,4 +1,3 @@
-
 # Link Parser for JavaScript
 
 This:
@@ -25,11 +24,7 @@ Becomes this:
       "link": [
         {
           "form": "cord",
-          "cord": "file"
-        }
-      ]
-    }
-  ],
+          "cord": "file" } ] } ],
   "stem": [
     {
       "form": "stem",
@@ -39,11 +34,7 @@ Becomes this:
           "link": [
             {
               "form": "cord",
-              "cord": "link"
-            }
-          ]
-        }
-      ],
+              "cord": "link" } ] } ],
       "stem": [
         {
           "form": "stem",
@@ -53,19 +44,13 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "a"
-                }
-              ]
-            },
+                  "cord": "a" } ] },
             {
               "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "cord": "b"
-                }
-              ]
-            },
+                  "cord": "b" } ] },
             {
               "form": "stem",
               "host": [
@@ -74,22 +59,14 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "c"
-                    }
-                  ]
-                },
+                      "cord": "c" } ] },
                 {
                   "form": "term",
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "d"
-                    }
-                  ]
-                }
-              ],
-              "stem": []
-            },
+                      "cord": "d" } ] } ],
+              "stem": [] },
             {
               "form": "stem",
               "host": [
@@ -98,22 +75,14 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "e"
-                    }
-                  ]
-                }
-              ],
-              "stem": []
-            },
+                      "cord": "e" } ] } ],
+              "stem": [] },
             {
               "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "cord": "f"
-                }
-              ]
-            },
+                  "cord": "f" } ] },
             {
               "form": "stem",
               "host": [
@@ -122,10 +91,7 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "g"
-                    }
-                  ]
-                },
+                      "cord": "g" } ] },
                 {
                   "form": "stem",
                   "host": [
@@ -134,10 +100,7 @@ Becomes this:
                       "link": [
                         {
                           "form": "cord",
-                          "cord": "h"
-                        }
-                      ]
-                    },
+                          "cord": "h" } ] },
                     {
                       "form": "stem",
                       "host": [
@@ -146,158 +109,38 @@ Becomes this:
                           "link": [
                             {
                               "form": "cord",
-                              "cord": "i"
-                            }
-                          ]
-                        },
+                              "cord": "i" } ] },
                         {
                           "form": "term",
                           "link": [
                             {
                               "form": "cord",
-                              "cord": "j"
-                            }
-                          ]
-                        }
-                      ],
-                      "stem": []
-                    }
-                  ],
-                  "stem": []
-                }
-              ],
-              "stem": []
-            }
-          ],
-          "stem": [
+                              "cord": "j" } ] } ],
+                      "stem": [] } ],
+                  "stem": [] } ],
+              "stem": [] } ],
+          "stem": [] } ] } ] }
+$ node tmp/js
+{
+  "form": "stem",
+  "host": [
+    {
+      "form": "term",
+      "link": [
+        {
+          "form": "cord",
+          "cord": "file" } ] } ],
+  "stem": [
+    {
+      "form": "stem",
+      "host": [
+        {
+          "form": "term",
+          "link": [
             {
-              "form": "stem",
-              "host": [
-                {
-                  "form": "term",
-                  "link": [
-                    {
-                      "form": "cord",
-                      "cord": "a"
-                    }
-                  ]
-                },
-                {
-                  "form": "term",
-                  "link": [
-                    {
-                      "form": "cord",
-                      "cord": "b"
-                    }
-                  ]
-                },
-                {
-                  "form": "stem",
-                  "host": [
-                    {
-                      "form": "term",
-                      "link": [
-                        {
-                          "form": "cord",
-                          "cord": "c"
-                        }
-                      ]
-                    },
-                    {
-                      "form": "term",
-                      "link": [
-                        {
-                          "form": "cord",
-                          "cord": "d"
-                        }
-                      ]
-                    }
-                  ],
-                  "stem": []
-                },
-                {
-                  "form": "stem",
-                  "host": [
-                    {
-                      "form": "term",
-                      "link": [
-                        {
-                          "form": "cord",
-                          "cord": "e"
-                        }
-                      ]
-                    }
-                  ],
-                  "stem": []
-                },
-                {
-                  "form": "term",
-                  "link": [
-                    {
-                      "form": "cord",
-                      "cord": "f"
-                    }
-                  ]
-                },
-                {
-                  "form": "stem",
-                  "host": [
-                    {
-                      "form": "term",
-                      "link": [
-                        {
-                          "form": "cord",
-                          "cord": "g"
-                        }
-                      ]
-                    },
-                    {
-                      "form": "stem",
-                      "host": [
-                        {
-                          "form": "term",
-                          "link": [
-                            {
-                              "form": "cord",
-                              "cord": "h"
-                            }
-                          ]
-                        },
-                        {
-                          "form": "stem",
-                          "host": [
-                            {
-                              "form": "term",
-                              "link": [
-                                {
-                                  "form": "cord",
-                                  "cord": "i"
-                                }
-                              ]
-                            },
-                            {
-                              "form": "term",
-                              "link": [
-                                {
-                                  "form": "cord",
-                                  "cord": "j"
-                                }
-                              ]
-                            }
-                          ],
-                          "stem": []
-                        }
-                      ],
-                      "stem": []
-                    }
-                  ],
-                  "stem": []
-                }
-              ],
-              "stem": []
-            }
-          ]
-        },
+              "form": "cord",
+              "cord": "link" } ] } ],
+      "stem": [
         {
           "form": "stem",
           "host": [
@@ -306,11 +149,91 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "text"
-                }
-              ]
-            }
-          ],
+                  "cord": "a" } ] },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "b" } ] },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "c" } ] },
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "d" } ] } ],
+              "stem": [] },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "e" } ] } ],
+              "stem": [] },
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "f" } ] },
+            {
+              "form": "stem",
+              "host": [
+                {
+                  "form": "term",
+                  "link": [
+                    {
+                      "form": "cord",
+                      "cord": "g" } ] },
+                {
+                  "form": "stem",
+                  "host": [
+                    {
+                      "form": "term",
+                      "link": [
+                        {
+                          "form": "cord",
+                          "cord": "h" } ] },
+                    {
+                      "form": "stem",
+                      "host": [
+                        {
+                          "form": "term",
+                          "link": [
+                            {
+                              "form": "cord",
+                              "cord": "i" } ] },
+                        {
+                          "form": "term",
+                          "link": [
+                            {
+                              "form": "cord",
+                              "cord": "j" } ] } ],
+                      "stem": [] } ],
+                  "stem": [] } ],
+              "stem": [] } ],
+          "stem": [] },
+        {
+          "form": "stem",
+          "host": [
+            {
+              "form": "term",
+              "link": [
+                {
+                  "form": "cord",
+                  "cord": "text" } ] } ],
           "stem": [
             {
               "form": "stem",
@@ -320,8 +243,7 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "text": "foo "
-                    },
+                      "text": "foo " },
                     {
                       "form": "stem",
                       "host": [
@@ -330,11 +252,7 @@ Becomes this:
                           "link": [
                             {
                               "form": "cord",
-                              "cord": "bar"
-                            }
-                          ]
-                        }
-                      ],
+                              "cord": "bar" } ] } ],
                       "stem": [
                         {
                           "form": "stem",
@@ -344,8 +262,7 @@ Becomes this:
                               "link": [
                                 {
                                   "form": "cord",
-                                  "text": "hello "
-                                },
+                                  "text": "hello " },
                                 {
                                   "form": "stem",
                                   "host": [
@@ -354,18 +271,9 @@ Becomes this:
                                       "link": [
                                         {
                                           "form": "cord",
-                                          "cord": "random"
-                                        }
-                                      ]
-                                    }
-                                  ],
-                                  "stem": []
-                                }
-                              ]
-                            }
-                          ],
-                          "stem": []
-                        },
+                                          "cord": "random" } ] } ],
+                                  "stem": [] } ] } ],
+                          "stem": [] },
                         {
                           "form": "stem",
                           "host": [
@@ -374,26 +282,12 @@ Becomes this:
                               "link": [
                                 {
                                   "form": "cord",
-                                  "text": "world"
-                                }
-                              ]
-                            }
-                          ],
-                          "stem": []
-                        }
-                      ]
-                    },
+                                  "text": "world" } ] } ],
+                          "stem": [] } ] },
                     {
                       "form": "cord",
-                      "text": " baz"
-                    }
-                  ]
-                }
-              ],
-              "stem": []
-            }
-          ]
-        },
+                      "text": " baz" } ] } ],
+              "stem": [] } ] },
         {
           "form": "stem",
           "host": [
@@ -402,11 +296,7 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "another"
-                }
-              ]
-            }
-          ],
+                  "cord": "another" } ] } ],
           "stem": [
             {
               "form": "stem",
@@ -416,17 +306,8 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "bar"
-                    }
-                  ]
-                }
-              ],
-              "stem": []
-            }
-          ]
-        }
-      ]
-    },
+                      "cord": "bar" } ] } ],
+              "stem": [] } ] } ] },
     {
       "form": "stem",
       "host": [
@@ -435,11 +316,7 @@ Becomes this:
           "link": [
             {
               "form": "cord",
-              "cord": "x"
-            }
-          ]
-        }
-      ],
+              "cord": "x" } ] } ],
       "stem": [
         {
           "form": "stem",
@@ -449,22 +326,14 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "foo"
-                }
-              ]
-            },
+                  "cord": "foo" } ] },
             {
               "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "cord": "bar"
-                }
-              ]
-            }
-          ],
-          "stem": []
-        },
+                  "cord": "bar" } ] } ],
+          "stem": [] },
         {
           "form": "stem",
           "host": [
@@ -473,22 +342,14 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "foo"
-                }
-              ]
-            },
+                  "cord": "foo" } ] },
             {
               "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "cord": "baz"
-                }
-              ]
-            }
-          ],
-          "stem": []
-        },
+                  "cord": "baz" } ] } ],
+          "stem": [] },
         {
           "form": "stem",
           "host": [
@@ -497,33 +358,20 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "a"
-                }
-              ]
-            },
+                  "cord": "a" } ] },
             {
               "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "cord": "b"
-                }
-              ]
-            },
+                  "cord": "b" } ] },
             {
               "form": "term",
               "link": [
                 {
                   "form": "cord",
-                  "cord": "c"
-                }
-              ]
-            }
-          ],
-          "stem": []
-        }
-      ]
-    },
+                  "cord": "c" } ] } ],
+          "stem": [] } ] },
     {
       "form": "stem",
       "host": [
@@ -532,11 +380,7 @@ Becomes this:
           "link": [
             {
               "form": "cord",
-              "cord": "y"
-            }
-          ]
-        }
-      ],
+              "cord": "y" } ] } ],
       "stem": [
         {
           "form": "stem",
@@ -546,46 +390,30 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "text": "foo"
-                }
-              ]
-            }
-          ],
-          "stem": []
-        },
+                  "text": "foo" } ] } ],
+          "stem": [] },
         {
           "form": "stem",
           "host": [
             {
               "form": "mark",
-              "mark": 123
-            }
-          ],
-          "stem": []
-        },
+              "mark": 123 } ],
+          "stem": [] },
         {
           "form": "stem",
           "host": [
             {
               "form": "code",
               "base": "u",
-              "code": "123"
-            }
-          ],
-          "stem": []
-        },
+              "code": "123" } ],
+          "stem": [] },
         {
           "form": "stem",
           "host": [
             {
               "form": "comb",
-              "fill": 3.14
-            }
-          ],
-          "stem": []
-        }
-      ]
-    },
+              "fill": 3.14 } ],
+          "stem": [] } ] },
     {
       "form": "stem",
       "host": [
@@ -594,8 +422,7 @@ Becomes this:
           "link": [
             {
               "form": "cord",
-              "cord": "dynamic-"
-            },
+              "cord": "dynamic-" },
             {
               "form": "stem",
               "host": [
@@ -604,11 +431,7 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "term"
-                    }
-                  ]
-                }
-              ],
+                      "cord": "term" } ] } ],
               "stem": [
                 {
                   "form": "stem",
@@ -618,18 +441,8 @@ Becomes this:
                       "link": [
                         {
                           "form": "cord",
-                          "text": "asdf"
-                        }
-                      ]
-                    }
-                  ],
-                  "stem": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
+                          "text": "asdf" } ] } ],
+                  "stem": [] } ] } ] } ],
       "stem": [
         {
           "form": "stem",
@@ -639,15 +452,8 @@ Becomes this:
               "link": [
                 {
                   "form": "cord",
-                  "cord": "foo"
-                }
-              ]
-            }
-          ],
-          "stem": []
-        }
-      ]
-    },
+                  "cord": "foo" } ] } ],
+          "stem": [] } ] },
     {
       "form": "stem",
       "host": [
@@ -662,13 +468,8 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "one"
-                    }
-                  ]
-                }
-              ],
-              "stem": []
-            },
+                      "cord": "one" } ] } ],
+              "stem": [] },
             {
               "form": "stem",
               "host": [
@@ -677,17 +478,11 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "two"
-                    }
-                  ]
-                }
-              ],
-              "stem": []
-            },
+                      "cord": "two" } ] } ],
+              "stem": [] },
             {
               "form": "cord",
-              "cord": "-three"
-            },
+              "cord": "-three" },
             {
               "form": "stem",
               "host": [
@@ -696,11 +491,7 @@ Becomes this:
                   "link": [
                     {
                       "form": "cord",
-                      "cord": "four"
-                    }
-                  ]
-                }
-              ],
+                      "cord": "four" } ] } ],
               "stem": [
                 {
                   "form": "stem",
@@ -710,24 +501,10 @@ Becomes this:
                       "link": [
                         {
                           "form": "cord",
-                          "cord": "x"
-                        }
-                      ]
-                    }
-                  ],
-                  "stem": []
-                }
-              ]
-            },
+                          "cord": "x" } ] } ],
+                  "stem": [] } ] },
             {
               "form": "cord",
-              "cord": "-five"
-            }
-          ]
-        }
-      ],
-      "stem": []
-    }
-  ]
-}
+              "cord": "-five" } ] } ],
+      "stem": [] } ] }
 ```
