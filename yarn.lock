@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@lancejpollard/pretty-compact-json.js@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@lancejpollard/pretty-compact-json.js/-/pretty-compact-json.js-0.1.2.tgz#ac5fc9b2014265518884f3b8ee1f0dc362594032"
-  integrity sha512-aEVLngVlPudphBqIKJJFtcWJc6LhnIXy5OXHrzoVlKTJdlXroPPrDapFHQjxgkTwYXOc/D/elmUAtbvfv3iwhw==
+"@lancejpollard/pretty-compact-json.js@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@lancejpollard/pretty-compact-json.js/-/pretty-compact-json.js-0.1.5.tgz#a490522f18c6110b0d8942527a728e4269f8e6f8"
+  integrity sha512-rmXvjfJ1pa8E9Tm2rPCcDl2nm2bc3S8m3Y08nfDUls+ZBzyBcTky4YwMZvXwpUYquZ5NO6P9uIVt3qT127400w==

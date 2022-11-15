@@ -2,6 +2,6 @@
   "name": "@lancejpollard/make-link-text.js",
   "version": "0.1.0",
   "devDependencies": {
-    "@lancejpollard/pretty-compact-json.js": "^0.1.2"
+    "@lancejpollard/pretty-compact-json.js": "^0.1.5"
   }
 }
