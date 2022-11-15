@@ -19,7 +19,7 @@ Becomes this:
 ```json
 {
   "form": "site",
-  "host": [
+  "leaf": [
     {
       "form": "term",
       "link": [
@@ -29,7 +29,7 @@ Becomes this:
   "site": [
     {
       "form": "site",
-      "host": [
+      "leaf": [
         {
           "form": "term",
           "link": [
@@ -39,7 +39,7 @@ Becomes this:
       "site": [
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -54,7 +54,7 @@ Becomes this:
                   "cord": "b" } ] },
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -70,7 +70,7 @@ Becomes this:
               "site": [] },
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -86,7 +86,7 @@ Becomes this:
                   "cord": "f" } ] },
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -95,7 +95,7 @@ Becomes this:
                       "cord": "g" } ] },
                 {
                   "form": "site",
-                  "host": [
+                  "leaf": [
                     {
                       "form": "term",
                       "link": [
@@ -104,7 +104,7 @@ Becomes this:
                           "cord": "h" } ] },
                     {
                       "form": "site",
-                      "host": [
+                      "leaf": [
                         {
                           "form": "term",
                           "link": [
@@ -123,7 +123,7 @@ Becomes this:
           "site": [] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -133,7 +133,7 @@ Becomes this:
           "site": [
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "text",
                   "link": [
@@ -142,7 +142,7 @@ Becomes this:
                       "text": "foo " },
                     {
                       "form": "site",
-                      "host": [
+                      "leaf": [
                         {
                           "form": "term",
                           "link": [
@@ -152,7 +152,7 @@ Becomes this:
                       "site": [
                         {
                           "form": "site",
-                          "host": [
+                          "leaf": [
                             {
                               "form": "text",
                               "link": [
@@ -161,7 +161,7 @@ Becomes this:
                                   "text": "hello " },
                                 {
                                   "form": "site",
-                                  "host": [
+                                  "leaf": [
                                     {
                                       "form": "term",
                                       "link": [
@@ -172,7 +172,7 @@ Becomes this:
                           "site": [] },
                         {
                           "form": "site",
-                          "host": [
+                          "leaf": [
                             {
                               "form": "text",
                               "link": [
@@ -186,7 +186,7 @@ Becomes this:
               "site": [] } ] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -196,7 +196,7 @@ Becomes this:
           "site": [
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -206,7 +206,7 @@ Becomes this:
               "site": [] } ] } ] },
     {
       "form": "site",
-      "host": [
+      "leaf": [
         {
           "form": "term",
           "link": [
@@ -216,7 +216,7 @@ Becomes this:
       "site": [
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -232,7 +232,7 @@ Becomes this:
           "site": [] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -248,7 +248,7 @@ Becomes this:
           "site": [] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -270,7 +270,7 @@ Becomes this:
           "site": [] } ] },
     {
       "form": "site",
-      "host": [
+      "leaf": [
         {
           "form": "term",
           "link": [
@@ -280,7 +280,7 @@ Becomes this:
       "site": [
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "text",
               "link": [
@@ -290,14 +290,14 @@ Becomes this:
           "site": [] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "mark",
               "mark": 123 } ],
           "site": [] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "code",
               "base": "u",
@@ -305,14 +305,14 @@ Becomes this:
           "site": [] },
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "comb",
               "fill": 3.14 } ],
           "site": [] } ] },
     {
       "form": "site",
-      "host": [
+      "leaf": [
         {
           "form": "term",
           "link": [
@@ -321,7 +321,7 @@ Becomes this:
               "cord": "dynamic-" },
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -331,7 +331,7 @@ Becomes this:
               "site": [
                 {
                   "form": "site",
-                  "host": [
+                  "leaf": [
                     {
                       "form": "text",
                       "link": [
@@ -342,7 +342,7 @@ Becomes this:
       "site": [
         {
           "form": "site",
-          "host": [
+          "leaf": [
             {
               "form": "term",
               "link": [
@@ -352,13 +352,13 @@ Becomes this:
           "site": [] } ] },
     {
       "form": "site",
-      "host": [
+      "leaf": [
         {
           "form": "term",
           "link": [
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -368,7 +368,7 @@ Becomes this:
               "site": [] },
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -381,7 +381,7 @@ Becomes this:
               "cord": "-three" },
             {
               "form": "site",
-              "host": [
+              "leaf": [
                 {
                   "form": "term",
                   "link": [
@@ -391,7 +391,7 @@ Becomes this:
               "site": [
                 {
                   "form": "site",
-                  "host": [
+                  "leaf": [
                     {
                       "form": "term",
                       "link": [

@@ -4,7 +4,7 @@ module.exports = parse
 function parse(list) {
   const start = {
     form: 'site',
-    host: [
+    leaf: [
       {
         form: 'term',
         link: [
@@ -30,7 +30,7 @@ function parse(list) {
           form: 'term',
           link: []
         }
-        node.host.push(term)
+        node.leaf.push(term)
         stack.push(term)
         break
       }
@@ -42,7 +42,7 @@ function parse(list) {
         const node = stack[stack.length - 1]
         const site = {
           form: 'site',
-          host: [],
+          leaf: [],
           site: []
         }
         node.site.push(site)
@@ -59,7 +59,7 @@ function parse(list) {
 
         const site = {
           form: 'site',
-          host: [],
+          leaf: [],
           site: []
         }
         node.site.push(site)
@@ -86,10 +86,10 @@ function parse(list) {
         const node = stack[stack.length - 1]
         const site = {
           form: 'site',
-          host: [],
+          leaf: [],
           site: []
         }
-        node.host.push(site)
+        node.leaf.push(site)
         stack.push(site)
         break
       }
@@ -103,7 +103,7 @@ function parse(list) {
           form: 'text',
           link: []
         }
-        node.host.push(text)
+        node.leaf.push(text)
         stack.push(text)
         break
       }
@@ -115,7 +115,7 @@ function parse(list) {
         const text = stack[stack.length - 1]
         const site = {
           form: 'site',
-          host: [],
+          leaf: [],
           site: []
         }
         text.link.push(site)
@@ -149,7 +149,7 @@ function parse(list) {
           form: `mark`,
           mark: parseInt(token.text, 10)
         }
-        site.host.push(mark)
+        site.leaf.push(mark)
         break
       }
       case `code`: {
@@ -163,7 +163,7 @@ function parse(list) {
           base: form,
           code: val//String.fromCharCode(parseInt(val, 16))
         }
-        node.host.push(code)
+        node.leaf.push(code)
         break
       }
       case `comb`: {
@@ -172,7 +172,7 @@ function parse(list) {
           form: `comb`,
           fill: parseFloat(token.text)
         }
-        node.host.push(comb)
+        node.leaf.push(comb)
         break
       }
     }
