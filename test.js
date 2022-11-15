@@ -1,6 +1,6 @@
 
 const prettify = require("@lancejpollard/pretty-compact-json.js");
-const form = require('..')
+const form = require('.')
 
 const nest = form(`link a/b[c/d][e]/f[g[h[i/j]]]
   text <foo {bar(<hello {random}>, <world>)} baz>

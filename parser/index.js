@@ -3,7 +3,7 @@ module.exports = parse
 
 function parse(list) {
   const start = {
-    form: 'stem',
+    form: 'site',
     host: [
       {
         form: 'term',
@@ -15,7 +15,7 @@ function parse(list) {
         ]
       }
     ],
-    stem: []
+    site: []
   }
   const stack = [ start ]
   let i = 0
@@ -40,13 +40,13 @@ function parse(list) {
       }
       case `open-parenthesis`: {
         const node = stack[stack.length - 1]
-        const stem = {
-          form: 'stem',
+        const site = {
+          form: 'site',
           host: [],
-          stem: []
+          site: []
         }
-        node.stem.push(stem)
-        stack.push(stem)
+        node.site.push(site)
+        stack.push(site)
         break
       }
       case `close-parenthesis`: {
@@ -57,13 +57,13 @@ function parse(list) {
         stack.pop()
         const node = stack[stack.length - 1]
 
-        const stem = {
-          form: 'stem',
+        const site = {
+          form: 'site',
           host: [],
-          stem: []
+          site: []
         }
-        node.stem.push(stem)
-        stack.push(stem)
+        node.site.push(site)
+        stack.push(site)
         break
       }
       case `term-part`: {
@@ -84,13 +84,13 @@ function parse(list) {
       }
       case `open-nest`: {
         const node = stack[stack.length - 1]
-        const stem = {
-          form: 'stem',
+        const site = {
+          form: 'site',
           host: [],
-          stem: []
+          site: []
         }
-        node.host.push(stem)
-        stack.push(stem)
+        node.host.push(site)
+        stack.push(site)
         break
       }
       case `close-nest`: {
@@ -113,13 +113,13 @@ function parse(list) {
       }
       case `open-interpolation`: {
         const text = stack[stack.length - 1]
-        const stem = {
-          form: 'stem',
+        const site = {
+          form: 'site',
           host: [],
-          stem: []
+          site: []
         }
-        text.link.push(stem)
-        stack.push(stem)
+        text.link.push(site)
+        stack.push(site)
         break
       }
       case `close-interpolation`: {
@@ -144,12 +144,12 @@ function parse(list) {
         break
       }
       case `mark`: {
-        const stem = stack[stack.length - 1]
+        const site = stack[stack.length - 1]
         const mark = {
           form: `mark`,
           mark: parseInt(token.text, 10)
         }
-        stem.host.push(mark)
+        site.host.push(mark)
         break
       }
       case `code`: {

@@ -18,7 +18,7 @@ Becomes this:
 <!-- prettier-ignore -->
 ```json
 {
-  "form": "stem",
+  "form": "site",
   "host": [
     {
       "form": "term",
@@ -26,9 +26,9 @@ Becomes this:
         {
           "form": "cord",
           "cord": "file" } ] } ],
-  "stem": [
+  "site": [
     {
-      "form": "stem",
+      "form": "site",
       "host": [
         {
           "form": "term",
@@ -36,9 +36,9 @@ Becomes this:
             {
               "form": "cord",
               "cord": "link" } ] } ],
-      "stem": [
+      "site": [
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -53,7 +53,7 @@ Becomes this:
                   "form": "cord",
                   "cord": "b" } ] },
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -67,9 +67,9 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "d" } ] } ],
-              "stem": [] },
+              "site": [] },
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -77,7 +77,7 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "e" } ] } ],
-              "stem": [] },
+              "site": [] },
             {
               "form": "term",
               "link": [
@@ -85,7 +85,7 @@ Becomes this:
                   "form": "cord",
                   "cord": "f" } ] },
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -94,7 +94,7 @@ Becomes this:
                       "form": "cord",
                       "cord": "g" } ] },
                 {
-                  "form": "stem",
+                  "form": "site",
                   "host": [
                     {
                       "form": "term",
@@ -103,7 +103,7 @@ Becomes this:
                           "form": "cord",
                           "cord": "h" } ] },
                     {
-                      "form": "stem",
+                      "form": "site",
                       "host": [
                         {
                           "form": "term",
@@ -117,12 +117,12 @@ Becomes this:
                             {
                               "form": "cord",
                               "cord": "j" } ] } ],
-                      "stem": [] } ],
-                  "stem": [] } ],
-              "stem": [] } ],
-          "stem": [] },
+                      "site": [] } ],
+                  "site": [] } ],
+              "site": [] } ],
+          "site": [] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -130,9 +130,9 @@ Becomes this:
                 {
                   "form": "cord",
                   "cord": "text" } ] } ],
-          "stem": [
+          "site": [
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "text",
@@ -141,7 +141,7 @@ Becomes this:
                       "form": "cord",
                       "text": "foo " },
                     {
-                      "form": "stem",
+                      "form": "site",
                       "host": [
                         {
                           "form": "term",
@@ -149,9 +149,9 @@ Becomes this:
                             {
                               "form": "cord",
                               "cord": "bar" } ] } ],
-                      "stem": [
+                      "site": [
                         {
-                          "form": "stem",
+                          "form": "site",
                           "host": [
                             {
                               "form": "text",
@@ -160,7 +160,7 @@ Becomes this:
                                   "form": "cord",
                                   "text": "hello " },
                                 {
-                                  "form": "stem",
+                                  "form": "site",
                                   "host": [
                                     {
                                       "form": "term",
@@ -168,10 +168,10 @@ Becomes this:
                                         {
                                           "form": "cord",
                                           "cord": "random" } ] } ],
-                                  "stem": [] } ] } ],
-                          "stem": [] },
+                                  "site": [] } ] } ],
+                          "site": [] },
                         {
-                          "form": "stem",
+                          "form": "site",
                           "host": [
                             {
                               "form": "text",
@@ -179,13 +179,13 @@ Becomes this:
                                 {
                                   "form": "cord",
                                   "text": "world" } ] } ],
-                          "stem": [] } ] },
+                          "site": [] } ] },
                     {
                       "form": "cord",
                       "text": " baz" } ] } ],
-              "stem": [] } ] },
+              "site": [] } ] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -193,9 +193,9 @@ Becomes this:
                 {
                   "form": "cord",
                   "cord": "another" } ] } ],
-          "stem": [
+          "site": [
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -203,9 +203,9 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "bar" } ] } ],
-              "stem": [] } ] } ] },
+              "site": [] } ] } ] },
     {
-      "form": "stem",
+      "form": "site",
       "host": [
         {
           "form": "term",
@@ -213,9 +213,9 @@ Becomes this:
             {
               "form": "cord",
               "cord": "x" } ] } ],
-      "stem": [
+      "site": [
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -229,9 +229,9 @@ Becomes this:
                 {
                   "form": "cord",
                   "cord": "bar" } ] } ],
-          "stem": [] },
+          "site": [] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -245,9 +245,9 @@ Becomes this:
                 {
                   "form": "cord",
                   "cord": "baz" } ] } ],
-          "stem": [] },
+          "site": [] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -267,9 +267,9 @@ Becomes this:
                 {
                   "form": "cord",
                   "cord": "c" } ] } ],
-          "stem": [] } ] },
+          "site": [] } ] },
     {
-      "form": "stem",
+      "form": "site",
       "host": [
         {
           "form": "term",
@@ -277,9 +277,9 @@ Becomes this:
             {
               "form": "cord",
               "cord": "y" } ] } ],
-      "stem": [
+      "site": [
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "text",
@@ -287,31 +287,31 @@ Becomes this:
                 {
                   "form": "cord",
                   "text": "foo" } ] } ],
-          "stem": [] },
+          "site": [] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "mark",
               "mark": 123 } ],
-          "stem": [] },
+          "site": [] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "code",
               "base": "u",
               "code": "123" } ],
-          "stem": [] },
+          "site": [] },
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "comb",
               "fill": 3.14 } ],
-          "stem": [] } ] },
+          "site": [] } ] },
     {
-      "form": "stem",
+      "form": "site",
       "host": [
         {
           "form": "term",
@@ -320,7 +320,7 @@ Becomes this:
               "form": "cord",
               "cord": "dynamic-" },
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -328,9 +328,9 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "term" } ] } ],
-              "stem": [
+              "site": [
                 {
-                  "form": "stem",
+                  "form": "site",
                   "host": [
                     {
                       "form": "text",
@@ -338,10 +338,10 @@ Becomes this:
                         {
                           "form": "cord",
                           "text": "asdf" } ] } ],
-                  "stem": [] } ] } ] } ],
-      "stem": [
+                  "site": [] } ] } ] } ],
+      "site": [
         {
-          "form": "stem",
+          "form": "site",
           "host": [
             {
               "form": "term",
@@ -349,15 +349,15 @@ Becomes this:
                 {
                   "form": "cord",
                   "cord": "foo" } ] } ],
-          "stem": [] } ] },
+          "site": [] } ] },
     {
-      "form": "stem",
+      "form": "site",
       "host": [
         {
           "form": "term",
           "link": [
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -365,9 +365,9 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "one" } ] } ],
-              "stem": [] },
+              "site": [] },
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -375,12 +375,12 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "two" } ] } ],
-              "stem": [] },
+              "site": [] },
             {
               "form": "cord",
               "cord": "-three" },
             {
-              "form": "stem",
+              "form": "site",
               "host": [
                 {
                   "form": "term",
@@ -388,9 +388,9 @@ Becomes this:
                     {
                       "form": "cord",
                       "cord": "four" } ] } ],
-              "stem": [
+              "site": [
                 {
-                  "form": "stem",
+                  "form": "site",
                   "host": [
                     {
                       "form": "term",
@@ -398,9 +398,9 @@ Becomes this:
                         {
                           "form": "cord",
                           "cord": "x" } ] } ],
-                  "stem": [] } ] },
+                  "site": [] } ] },
             {
               "form": "cord",
               "cord": "-five" } ] } ],
-      "stem": [] } ] }
+      "site": [] } ] }
 ```
